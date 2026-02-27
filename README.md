@@ -45,3 +45,40 @@ Esse padrão reduz o acoplamento e torna o sistema mais flexível.
 * ReservatorioAgua.java
 * Main.java
 
+## Execução do Programa
+
+Ao executar o arquivo `Main.java`, o programa imprime a seguinte saída no console:
+
+```
+===== Testando Singleton =====
+Configuração criada.
+Usando configuração do sistema.
+As duas variáveis apontam para a mesma instância.
+
+===== Testando Factory Method =====
+Produto A criado.
+Produto B criado.
+```
+
+---
+
+## Explicação da Saída
+
+### Parte 1 – Testando o Singleton
+
+* A mensagem **"Configuração criada."** aparece apenas uma vez, pois o padrão Singleton garante que apenas uma única instância da classe `Configuracao` seja criada.
+* Mesmo chamando o método `getInstancia()` duas vezes, o sistema reutiliza o mesmo objeto.
+* A mensagem **"As duas variáveis apontam para a mesma instância."** confirma que `config1` e `config2` referenciam o mesmo objeto na memória.
+
+Isso demonstra o funcionamento correto do padrão Singleton.
+
+---
+
+### Parte 2 – Testando o Factory Method
+
+* Quando o programa chama `FabricaProduto.criarProduto("A")`, é criado um objeto do tipo `ProdutoA`.
+* Quando chama `FabricaProduto.criarProduto("B")`, é criado um objeto do tipo `ProdutoB`.
+* Cada objeto executa seu próprio método `criar()`, imprimindo mensagens diferentes no console.
+
+Isso demonstra que a criação dos objetos foi delegada à fábrica, caracterizando o uso do padrão Factory Method.
+
